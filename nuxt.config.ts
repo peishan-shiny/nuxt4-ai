@@ -4,15 +4,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      apiBaseUrl: 'https://pxapi.fortune-inc.com/api/'
-    }
+      apiBaseUrl: 'https://pxapi.fortune-inc.com/api/',
+    },
   },
   css: ['~/assets/css/main.css'],
   imports: {
-    dirs: [
-      'app/composables/**', 
-      'app/utils/**'
-    ],
+    dirs: ['app/composables/**', 'app/utils/**', 'shared/types/**'],
   },
   // app: {
   //   head: {
@@ -23,4 +20,4 @@ export default defineNuxtConfig({
   //     ]
   //   }
   // }
-})
+});
