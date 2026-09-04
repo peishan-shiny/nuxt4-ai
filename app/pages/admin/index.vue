@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { useApiAuth } from '@@/app/composables/api/useApiAuth';
+import type { LoginRequest } from '@/types/auth';
+import { useApiAuth } from '@/composables/api/useApiAuth';
 const { login } = useApiAuth();
+const { logout } = useAuth();
 
 const account = ref('');
 const password = ref('');
 const isLoggingIn = ref(false);
+const isLoggingOut = ref(false);
 const statusMessage = ref('');
 const statusType = ref<'success' | 'error' | ''>('');
 
@@ -41,6 +44,23 @@ async function handleLogin() {
     isLoggingIn.value = false;
   }
 }
+
+async function handleLogout() {
+  isLoggingOut.value = true;
+  statusType.value = '';
+  statusMessage.value = '';
+
+  try {
+    await logout();
+    statusType.value = 'success';
+    statusMessage.value = '已登出。';
+  } catch (error) {
+    statusType.value = 'error';
+    statusMessage.value = error instanceof Error ? error.message : '登出失敗。';
+  } finally {
+    isLoggingOut.value = false;
+  }
+}
 </script>
 
 <template>
@@ -70,6 +90,14 @@ async function handleLogin() {
 
             <button class="btn btn-primary w-100" :disabled="isLoggingIn" @click="handleLogin">
               {{ isLoggingIn ? '登入中...' : '登入' }}
+            </button>
+
+            <button
+              class="btn btn-outline-secondary w-100 mt-2"
+              :disabled="isLoggingOut"
+              @click="handleLogout"
+            >
+              {{ isLoggingOut ? '登出中...' : '登出' }}
             </button>
 
             <p

@@ -1,3 +1,5 @@
+import type { LoginResponseData } from '@/types/auth';
+
 export const useAuth = () => {
   const { pageRoleEn } = useSetting();
 
@@ -22,8 +24,12 @@ export const useAuth = () => {
     _accessTokenCookie.value = auth;
   };
 
+  // 登出，清除 accessToken cookie
+  const logout = () => changAccessTokenCookie();
+
   return {
     changAccessTokenCookie,
     authInfoCookie,
+    logout,
   };
 };

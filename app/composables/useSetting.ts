@@ -1,3 +1,5 @@
+import type { CustomRouteInfo } from '@/types/custom-route';
+
 const useToRouteState = () => useState<CustomRouteInfo>('toRoute');
 
 export const useSetting = () => {

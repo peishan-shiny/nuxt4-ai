@@ -1,3 +1,5 @@
+import type { CustomRouteInfo, CustomRouteInfoKey } from '@/types/custom-route';
+
 export default defineNuxtRouteMiddleware((to, from) => {
   const { toRoute } = useSetting();
 

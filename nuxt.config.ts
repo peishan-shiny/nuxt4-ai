@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -7,17 +9,21 @@ export default defineNuxtConfig({
       apiBaseUrl: 'https://pxapi.fortune-inc.com/api/',
     },
   },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/scss/main.scss'],
   imports: {
-    dirs: ['app/composables/**', 'app/utils/**', 'shared/types/**'],
+    dirs: ['app/composables/**', 'app/utils/**'],
   },
-  // app: {
-  //   head: {
-  //     title: 'Nuxt 4 + Bootstrap 5',
-  //     meta: [
-  //       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-  //       { name: 'description', content: 'A Nuxt 4 project with Bootstrap 5 configured.' }
-  //     ]
-  //   }
-  // }
+  alias: {
+    '@scss': fileURLToPath(new URL('./app/assets/scss', import.meta.url)),
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // Bootstrap 5 底層仍使用舊版 Sass 語法，暫時關閉相關棄用警告
+          silenceDeprecations: ['import', 'global-builtin', 'color-functions', 'if-function'],
+        },
+      },
+    },
+  },
 });

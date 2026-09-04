@@ -1,0 +1,16 @@
+// imports
+@import '@scss/imports';
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.example-token-spacing {
+  padding: var(--spacing-24);
+  margin-top: var(--spacing-16);
+}

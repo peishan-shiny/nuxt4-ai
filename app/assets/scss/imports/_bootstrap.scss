@@ -1,0 +1,59 @@
+// functions
+@import 'bootstrap/scss/functions';
+
+// variables
+@import '@scss/variables';
+@import 'bootstrap/scss/bootstrap';
+
+// mixins
+@import 'bootstrap/scss/mixins';
+
+// 必需 Bootstrap CSS
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/maps';
+
+// 自訂 BS 元件主題色(需放於 bs maps 檔案後)
+@import 'bootstrap/scss/root';
+
+// 可選的 Bootstrap CSS
+@import 'bootstrap/scss/utilities';
+
+// 更新 bootstrap utilities
+
+// 可選的 Bootstrap CSS
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/images';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/tables';
+@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/transitions';
+@import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/button-group';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
+@import 'bootstrap/scss/card';
+@import 'bootstrap/scss/accordion';
+@import 'bootstrap/scss/breadcrumb';
+@import 'bootstrap/scss/pagination';
+@import 'bootstrap/scss/badge';
+@import 'bootstrap/scss/alert';
+@import 'bootstrap/scss/progress';
+@import 'bootstrap/scss/list-group';
+@import 'bootstrap/scss/close';
+@import 'bootstrap/scss/toasts';
+@import 'bootstrap/scss/modal';
+@import 'bootstrap/scss/tooltip';
+@import 'bootstrap/scss/popover';
+@import 'bootstrap/scss/carousel';
+@import 'bootstrap/scss/spinners';
+@import 'bootstrap/scss/offcanvas';
+@import 'bootstrap/scss/placeholders';
+@import 'bootstrap/scss/helpers';
+
+// 使用 _utilities.scss 需匯入，將 Sass map 生成 classes
+@import 'bootstrap/scss/utilities/api';
+
+// 專案覆蓋的 bootstrap 樣式

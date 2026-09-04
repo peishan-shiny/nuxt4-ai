@@ -48,6 +48,9 @@ const createApiFetcher = () => {
   return $fetch.create({
     baseURL: baseUrl,
     async onRequest({ options }: FetchContext) {
+      const { pageRoleEn } = useSetting();
+      options.baseURL = `${baseUrl}${pageRoleEn.value}`;
+
       // 設定請求 headers
       const { authInfoCookie } = useAuth();
       const _accessToken = authInfoCookie.value?.accessToken;
