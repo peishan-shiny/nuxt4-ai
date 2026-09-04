@@ -24,7 +24,15 @@ description: 'Use this skill when you need to convert Figma design tokens or exp
 
 若內容不足，先詢問使用者補充，避免自行猜測。
 
-### 2. 優先覆寫 Bootstrap 5 原生變數
+### 2. 讀取 token 時先判斷目標檔案
+
+在讀取 Figma token 後，先判斷每一個 token 是否對應到 Bootstrap 5 原生變數。
+
+- 若 token 名稱與 Bootstrap 5 原生變數一致，例如 `$primary`、`$secondary`、`$success`、`$border-radius`、`$font-family-sans-serif` 等，請直接修改 [app/assets/scss/variables/\_bootstrap.scss](app/assets/scss/variables/_bootstrap.scss) 裡面的變數值。
+- 若 token 是自訂設計 token，例如 `$min-widths`、`$opacity`、`$color-brand`、`$radius-sm` 等，請直接新增到 [app/assets/scss/variables/\_custom.scss](app/assets/scss/variables/_custom.scss)。
+- 若不確定是否為 Bootstrap 變數，請先以 Bootstrap 5 變數名稱表為準；若沒有對應，則視為自訂變數。
+
+### 3. 優先覆寫 Bootstrap 5 原生變數
 
 如果是 Bootstrap 5 原本就有的變數，請依照 Bootstrap 5 原本的變數名稱來覆蓋，而不是自行新增不相容的命名。
 
